@@ -4,7 +4,6 @@ using UnityEngine;
 
 public interface IObserver
 {
-    public void OnNotify(PlayerActions action);
-
+    public void OnNotify(PlayerMovement movement);
 
 }

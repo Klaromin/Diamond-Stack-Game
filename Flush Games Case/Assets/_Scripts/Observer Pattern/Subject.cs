@@ -16,11 +16,11 @@ public abstract class Subject : MonoBehaviour
         _observers.Remove(observer);
     }
 
-    protected void NotifyObservers(PlayerActions action)
+    protected void NotifyObservers(PlayerMovement movement)
     {
         _observers.ForEach((_observers) =>
         {
-            _observers.OnNotify(action);
+            _observers.OnNotify(movement);
 
         });
     }

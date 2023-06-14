@@ -14,12 +14,9 @@ public class PlayerController : Subject
     private void Start()
     {
         _movementSpeed = 3f;
-
-
     }
     private void FixedUpdate()
     {
-        Debug.Log("Horizontal: " + Math.Abs(_joystick.Horizontal) + " " + "Vertical: " + Math.Abs(_joystick.Vertical));
         _rb.velocity = new Vector3(_joystick.Horizontal * _movementSpeed, _rb.velocity.y, _joystick.Vertical * _movementSpeed);
 
         if (_joystick.Horizontal != 0 || _joystick.Vertical != 0)
@@ -28,16 +25,16 @@ public class PlayerController : Subject
             
             if (Math.Abs(_joystick.Horizontal) > 0.6f || Math.Abs(_joystick.Vertical) > 0.6f)
             {
-                NotifyObservers(PlayerActions.Run);
+                NotifyObservers(PlayerMovement.Run);
             }
             if (Math.Abs(_joystick.Horizontal) is < 0.6f and > 0 && Math.Abs(_joystick.Vertical) is < 0.6f and > 0)
             {
-                NotifyObservers(PlayerActions.Walk);
+                NotifyObservers(PlayerMovement.Walk);
             }
         }
         if (_joystick.Vertical == 0 && _joystick.Horizontal == 0)
         {
-            NotifyObservers(PlayerActions.Idle);
+            NotifyObservers(PlayerMovement.Idle);
         }
 
     }

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAnimations : MonoBehaviour, IObserver
+public class PlayerAnimations : MonoBehaviour ,IObserver
 {
     [SerializeField] private Subject _playerSubject;
     private Animator _animator;
@@ -12,6 +12,7 @@ public class PlayerAnimations : MonoBehaviour, IObserver
     {
         _animator = GetComponent<Animator>();
     }
+    
     private void OnEnable()
     {
         _playerSubject.AddObserver(this);
@@ -21,19 +22,19 @@ public class PlayerAnimations : MonoBehaviour, IObserver
     {
         _playerSubject.RemoveObserver(this);
     }
-    public void OnNotify(PlayerActions action)
+    public void OnNotify(PlayerMovement action)
     {
-        if (action == PlayerActions.Walk)
+        if (action == PlayerMovement.Walk)
         {
             _animator.SetBool("Walk", true);
             _animator.SetBool("Run", false);
         }
-        if (action == PlayerActions.Run)
+        if (action == PlayerMovement.Run)
         {
             _animator.SetBool("Walk", false);
             _animator.SetBool("Run", true);
         }
-        if (action == PlayerActions.Idle)
+        if (action == PlayerMovement.Idle)
         {
             _animator.SetBool("Walk", false);
             _animator.SetBool("Run", false);
