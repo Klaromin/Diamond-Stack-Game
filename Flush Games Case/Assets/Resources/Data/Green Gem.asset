@@ -16,5 +16,5 @@ MonoBehaviour:
   GemType: 2
   GemInintialPrice: 100
   GemIcon: {fileID: 21300000, guid: e4b24ac37e9332843b4c7df1a5e8b4b9, type: 3}
-  GemModel: {fileID: 919132149155446097, guid: 3003218f351375c48864ca83a50ac89c, type: 3}
+  GemModel: {fileID: -5754084199372789682, guid: 3003218f351375c48864ca83a50ac89c, type: 3}
   GemMaterial: {fileID: -1360991219368177298, guid: 3003218f351375c48864ca83a50ac89c, type: 3}

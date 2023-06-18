@@ -12,12 +12,8 @@ namespace StackGame.UI
         [SerializeField] private TextMeshProUGUI _gemAmountText;
         [SerializeField] private TextMeshProUGUI _gemTypeText;
         private GemData _gemData;
-        void Start()
-        {
-        
-        }
+
     
-      
         void Update()
         {
             InitAmountText();
@@ -26,15 +22,17 @@ namespace StackGame.UI
         public void Init()
         {
             InitTypeText();
-            InitAmountText();
+            InitInitialText();
             InitSprite();
         }
-    
-    
 
         public void InitTypeText()
         {
             _gemTypeText.text = _gemData.GemName;
+        }
+        public void InitInitialText()
+        {
+            _gemAmountText.text = "Initial Gem Amount: "+0;
         }
 
         public void InitAmountText()

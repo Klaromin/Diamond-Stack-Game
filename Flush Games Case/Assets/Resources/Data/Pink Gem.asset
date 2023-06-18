@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Pink Gem
   m_EditorClassIdentifier: 
   GemName: gem_pink
+  GemType: 0
   GemInintialPrice: 200
   GemIcon: {fileID: 21300000, guid: 801ad26c2e7fb804caee0e913dea0918, type: 3}
-  GemModel: {fileID: 919132149155446097, guid: fe6994a792b94364196b94f163b7aec1, type: 3}
+  GemModel: {fileID: -5754084199372789682, guid: fe6994a792b94364196b94f163b7aec1, type: 3}
   GemMaterial: {fileID: 6271573414225017425, guid: fe6994a792b94364196b94f163b7aec1, type: 3}
