@@ -1,19 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public enum PlayerActions 
+namespace StackGame.Player
 {
-    Run,
-    Walk,
-    Idle,
-    Collect,
-    Sell
-}
+    public enum PlayerActions 
+    {
+        Sell,
+        Collect
+    }
 
-public enum PlayerMovement
-{
-    Run,
-    Walk,
-    Idle
+    public enum PlayerMovement
+    {
+        Run,
+        Walk,
+        Idle
+    }
 }

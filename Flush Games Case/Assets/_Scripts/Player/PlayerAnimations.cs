@@ -1,43 +1,45 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using StackGame.Observer_Pattern;
 using UnityEngine;
 
-public class PlayerAnimations : MonoBehaviour ,IObserver
+namespace StackGame.Player
 {
-    [SerializeField] private Subject _playerSubject;
-    private Animator _animator;
+    public class PlayerAnimations : MonoBehaviour, IObserver
+    {
+        [SerializeField] private Subject _playerSubject;
+        private Animator _animator;
 
-    private void Start()
-    {
-        _animator = GetComponent<Animator>();
-    }
-    
-    private void OnEnable()
-    {
-        _playerSubject.AddObserver(this);
-    }
-    
-    private void OnDisable()
-    {
-        _playerSubject.RemoveObserver(this);
-    }
-    public void OnNotify(PlayerMovement action)
-    {
-        if (action == PlayerMovement.Walk)
+        private void Start()
         {
-            _animator.SetBool("Walk", true);
-            _animator.SetBool("Run", false);
+            _animator = GetComponent<Animator>();
         }
-        if (action == PlayerMovement.Run)
+    
+        private void OnEnable()
         {
-            _animator.SetBool("Walk", false);
-            _animator.SetBool("Run", true);
+            _playerSubject.AddObserver(this);
         }
-        if (action == PlayerMovement.Idle)
+    
+        private void OnDisable()
         {
-            _animator.SetBool("Walk", false);
-            _animator.SetBool("Run", false);
+            _playerSubject.RemoveObserver(this);
+        }
+        public void OnNotify(PlayerMovement movement)
+        {
+            Debug.Log(movement);
+            if (movement == PlayerMovement.Walk)
+            {
+                _animator.SetBool("Walk", true);
+                _animator.SetBool("Run", false);
+            }
+            if (movement == PlayerMovement.Run)
+            {
+                _animator.SetBool("Walk", false);
+                _animator.SetBool("Run", true);
+            }
+            if (movement == PlayerMovement.Idle)
+            {
+                _animator.SetBool("Walk", false);
+                _animator.SetBool("Run", false);
+            }
         }
     }
 }

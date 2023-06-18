@@ -1,27 +1,31 @@
-using System.Collections;
 using System.Collections.Generic;
+using StackGame.Player;
 using UnityEngine;
 
-public abstract class Subject : MonoBehaviour
+namespace StackGame.Observer_Pattern
 {
-    private List<IObserver> _observers = new List<IObserver>();
-
-    public void AddObserver(IObserver observer)
+    public abstract class Subject : MonoBehaviour
     {
-        _observers.Add(observer);
-    }
+        private List<IObserver> _observers = new List<IObserver>();
 
-    public void RemoveObserver(IObserver observer)
-    {
-        _observers.Remove(observer);
-    }
-
-    protected void NotifyObservers(PlayerMovement movement)
-    {
-        _observers.ForEach((_observers) =>
+        public void AddObserver(IObserver observer)
         {
-            _observers.OnNotify(movement);
+            _observers.Add(observer);
+        }
 
-        });
+        public void RemoveObserver(IObserver observer)
+        {
+            _observers.Remove(observer);
+        }
+
+        protected void NotifyObservers(PlayerMovement movement)
+        {
+            _observers.ForEach((_observers) =>
+            {
+                _observers.OnNotify(movement);
+
+            });
+        }
+
     }
 }

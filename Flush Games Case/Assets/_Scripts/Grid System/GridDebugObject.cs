@@ -1,21 +1,39 @@
+using System.Collections.Generic;
+using StackGame.Collectable;
+using StackGame.Data;
+using StackGame.Managers;
 using TMPro;
 using UnityEngine;
 
-public class GridDebugObject : MonoBehaviour
+namespace StackGame.Grid_System
 {
-
-    [SerializeField] private TextMeshPro textMeshPro;
-
-
-    private GridObject gridObject;
-
-    public void SetGridObject(GridObject gridObject)
+    public class GridDebugObject : MonoBehaviour //isim değiş.
     {
-        this.gridObject = gridObject;
-    }
 
-    private void Update()
-    {
-        textMeshPro.text = gridObject.ToString();
+        [SerializeField] private TextMeshPro textMeshPro;
+
+        private Gem _currentGem;
+        private GridObject gridObject;
+        private List<GemData> _gemDataList;
+
+        private void Start()
+        {
+            _gemDataList = GemManager.Instance.GetGemDataList();
+       
+        }
+
+
+
+
+
+        public void SetGridObject(GridObject gridObject)
+        {
+            this.gridObject = gridObject;
+        }
+
+        private void Update()
+        {
+            textMeshPro.text = gridObject.ToString();
+        }
     }
 }

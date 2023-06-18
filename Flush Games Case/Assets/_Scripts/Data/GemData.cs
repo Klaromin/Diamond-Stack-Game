@@ -1,12 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Collectables/Gem", fileName = "New Gem Data")]
-public class GemData : ScriptableObject
+namespace StackGame.Data
 {
-    public string GemName;
-    public int GemInintialPrice;
-    public Sprite GemIcon;
-    public GameObject GemModel;
+    [CreateAssetMenu(menuName = "Collectables/Gem", fileName = "New Gem Data")]
+    public class GemData : ScriptableObject
+    {
+        public string GemName;
+        public GemType GemType;
+        public int GemInintialPrice;
+        public Sprite GemIcon;
+        public MeshFilter GemModel;
+        public Material GemMaterial;
+    }
 }

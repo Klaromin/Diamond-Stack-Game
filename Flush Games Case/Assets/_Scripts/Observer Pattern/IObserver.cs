@@ -1,9 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using StackGame.Player;
 
-public interface IObserver
+namespace StackGame.Observer_Pattern
 {
-    public void OnNotify(PlayerMovement movement);
-
+    public interface IObserver
+    {
+        public void OnNotify(PlayerMovement movement);
+    }
 }
